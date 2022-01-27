@@ -1,5 +1,4 @@
-import { BoardQuery } from './../../projects/store/src/lib/board.query';
-import { BoardService } from './../../projects/store/src/lib/board.service';
+import { BoardQuery, BoardService } from '@store';
 import { Component } from '@angular/core';
 import { Board } from 'projects/store/src/public-api';
 import { Status } from 'projects/store/src/lib/models/board';
