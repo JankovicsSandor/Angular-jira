@@ -1,0 +1,9 @@
+<div>
+    <h1>{{board.name}}</h1>
+    <button (click)="createIssueOnBoard()">Create</button>
+    <div class="d-flex">
+        <div *ngFor="let status of board.statuses" class="status">
+            {{status|json}}
+        </div>
+    </div>
+</div>

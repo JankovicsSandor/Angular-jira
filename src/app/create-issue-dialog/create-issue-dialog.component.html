@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Create issue</h1>
+<div mat-dialog-content>
+    <form [formGroup]="createForm">
+        <h3>Summary</h3>
+        <input type="text" placeholder="Summary" formControlName="summary">
+        <h3>Description</h3>
+        <input type="text" placeholder="Description" formControlName="description">
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="createIssue()">Create</button>
+</div>

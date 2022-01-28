@@ -1,3 +1,2 @@
-{{allBoard$|async|json}}
-
+<app-board *ngFor="let board of allBoard$|async" [board]="board"></app-board>
 <button (click)="addNewBoard()">Add new board</button>

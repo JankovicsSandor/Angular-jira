@@ -1,0 +1,8 @@
+.d-flex {
+    display: flex;
+    gap: 8px;
+}
+
+.status {
+    border: 1px solid gray;
+}
