@@ -1,8 +1,10 @@
+import { BoardModel } from './../models/boardModel';
 import { BoardQuery, BoardService } from '@store';
 import { Component } from '@angular/core';
 import { Board } from 'projects/store/src/public-api';
 import { Status } from 'projects/store/src/lib/models/board';
-import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
+import { BoardIssueService } from './board/services/board-issue.service';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +13,10 @@ import { BehaviorSubject, ReplaySubject } from 'rxjs';
 })
 export class AppComponent {
   title = 'jira';
-  allBoard$: ReplaySubject<Board[]>=new ReplaySubject(1);
+  allBoard$: ReplaySubject<BoardModel[]> = new ReplaySubject(1);
 
-  constructor(private bService: BoardService,private boardQuery:BoardQuery) {
-    this.boardQuery.getAllBoard$().subscribe(this.allBoard$);
+  constructor(private bService: BoardService, private boardQuery: BoardIssueService) {
+    this.boardQuery.getBoardIssueList().subscribe(this.allBoard$);
   }
 
   addNewBoard() {

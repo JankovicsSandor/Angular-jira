@@ -8,6 +8,8 @@ import { BoardComponent } from './board/board.component';
 import { CreateIssueDialogComponent } from './create-issue-dialog/create-issue-dialog.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BoardIssueService } from './board/services/board-issue.service';
+import { MatCardModule } from "@angular/material/card"
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +20,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     StoreModule,
     MatDialogModule,
+    MatCardModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [BoardIssueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

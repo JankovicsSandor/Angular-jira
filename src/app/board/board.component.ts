@@ -1,3 +1,4 @@
+import { BoardModel } from './../../models/boardModel';
 import { Component, Input, OnInit } from '@angular/core';
 import { Board } from '@store';
 import { MatDialog } from "@angular/material/dialog"
@@ -10,15 +11,16 @@ import { CreateIssueDialogComponent } from '../create-issue-dialog/create-issue-
 })
 export class BoardComponent implements OnInit {
 
-  @Input() board: Board = new Board();
+  @Input() board: BoardModel = new BoardModel();
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   createIssueOnBoard() {
-    let createDialog=this.dialog.open(CreateIssueDialogComponent,{
-      hasBackdrop:true
+    let createDialog = this.dialog.open(CreateIssueDialogComponent, {
+      hasBackdrop: true,
+      data: this.board
     });
   }
 

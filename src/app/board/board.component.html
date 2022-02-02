@@ -1,9 +1,12 @@
 <div>
-    <h1>{{board.name}}</h1>
+    <h1>{{board.boardName}}</h1>
     <button (click)="createIssueOnBoard()">Create</button>
     <div class="d-flex">
-        <div *ngFor="let status of board.statuses" class="status">
-            {{status|json}}
+        <div *ngFor="let status of board.stages" class="status">
+            <h2>{{status.stageName}}</h2>
+            <mat-card *ngFor="let issue of status.issues" style="background-color:aqua; margin-bottom: 12px;">
+                {{issue|json}}
+            </mat-card>
         </div>
     </div>
 </div>

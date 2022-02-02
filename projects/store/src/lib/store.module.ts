@@ -1,7 +1,10 @@
+import { IssueService } from './issue.service';
+import { IssueQuery } from './issue.query';
 import { BoardService } from './board.service';
 import { BoardQuery } from './board.query';
 import { NgModule } from '@angular/core';
 import { BoardStore } from './board.store';
+import { IssueStore } from './issue.store';
 
 
 
@@ -12,7 +15,11 @@ import { BoardStore } from './board.store';
   providers:[
     BoardStore,
     BoardQuery,
-    BoardService
+    BoardService,
+
+    IssueStore,
+    IssueQuery,
+    IssueService
   ],
   exports: [
   ]
