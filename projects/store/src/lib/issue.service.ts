@@ -10,4 +10,8 @@ export class IssueService {
   addIssue(newIssue: Issue) {
     this.issueStore.add(newIssue);
   }
+
+  updateIssuePosition(issue:Issue,newStatusId:number){
+      this.issueStore.update(issue.id,{statusId:newStatusId});
+  }
 }

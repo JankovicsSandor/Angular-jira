@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BoardQuery, IssueQuery } from '@store';
+import { BoardQuery, Issue, IssueQuery, IssueService } from '@store';
 import { combineLatest, map, ReplaySubject } from 'rxjs';
 import { BoardModel, BoardStageIssueModel } from 'src/models/boardModel';
 
@@ -7,7 +7,7 @@ import { BoardModel, BoardStageIssueModel } from 'src/models/boardModel';
 export class BoardIssueService {
   private boardIssueList: ReplaySubject<BoardModel[]> = new ReplaySubject();
 
-  constructor(private boardQuery: BoardQuery, private issueQuery: IssueQuery) {
+  constructor(private boardQuery: BoardQuery, private issueQuery: IssueQuery, private issueService:IssueService) {
 
     combineLatest([this.boardQuery.getAllBoard$(), this.issueQuery.getAllIssue$()]).pipe(map(([boardList, issueList]) => {
       let allBoardList: BoardModel[] = [];
@@ -26,5 +26,9 @@ export class BoardIssueService {
 
   getBoardIssueList() {
     return this.boardIssueList.asObservable();
+  }
+
+  updateIssuePosition(issue:Issue,newsStatusId:number){
+    this.issueService.updateIssuePosition(issue,newsStatusId);
   }
 }

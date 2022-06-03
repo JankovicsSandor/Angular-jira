@@ -1,2 +1,2 @@
-<app-board *ngFor="let board of allBoard$|async" [board]="board"></app-board>
+<app-board *ngFor="let board of allBoard$|async" [board]="board" cdkDropList></app-board>
 <button (click)="addNewBoard()">Add new board</button>
